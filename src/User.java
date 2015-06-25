@@ -3,6 +3,8 @@ import java.util.*;
 
 public class User implements Comparable<User> {
     static Set<User> usersV = new TreeSet<>();
+    static ArrayList<Produckt> goodsUser = new ArrayList<>();
+
     String userName;
     String userPhone;
     String userMail;
@@ -14,6 +16,15 @@ public class User implements Comparable<User> {
         this.userPhone = userFome;
         this.userMail = userMail;
         this.password = password;
+    }
+
+    public ArrayList<Produckt> getGoodsUser() {
+        double nasenka = 1.3;
+        for (Produckt tmp : Sklad.goods) {
+            tmp.price *= nasenka;
+            goodsUser.add(tmp);
+        }
+        return goodsUser;
     }
 
     @Override
@@ -37,14 +48,14 @@ public class User implements Comparable<User> {
     }
 
     public void reportUser(String userName, String pass) {
-        if (userName.equals("Admin")&& pass == "7777"){
-            System.out.println("Все пользователи в базе");{
-            for (User temp : usersV) {
-                System.out.println(temp);
+        if (userName.equals("Admin") && pass == "7777") {
+            System.out.println("Все пользователи в базе");
+            {
+                for (User temp : usersV) {
+                    System.out.println(temp);
+                }
             }
-        }}
-
-        else System.out.println("\n" + "Для посмотра списка пользователей введите правильное имя и пароль"+"\n");
+        } else System.out.println("\n" + "Для посмотра списка пользователей введите правильное имя и пароль" + "\n");
 
 
     }
@@ -93,7 +104,7 @@ public class User implements Comparable<User> {
         }
         if (sName.isEmpty()) {
             System.out.println("Что то не так с наименованием товара. Выводим весь товар.");
-            sName.addAll(Sklad.goods);
+            searchNam.addAll(searchNam);
         }
 
         return sName;
@@ -109,19 +120,36 @@ public class User implements Comparable<User> {
         return sCategory;
     }
 
-
-    public Collection<Produckt> searchPrice(int price, Collection<Produckt> searchPric) {
-        Vector<Produckt> sPrice = new Vector<>();
+    public Collection<Produckt> searchPrice(int z, Collection<Produckt> searchPric) {
+        ArrayList<Produckt> sPrice = new ArrayList<>();
         for (Produckt tmp : searchPric) {
-            if (tmp.price == price)
                 sPrice.add(tmp);
-        }
-        if (sPrice.isEmpty()) {
-            System.out.println("Что то не так с ценой. Выводим весь товар.");
-            sPrice.addAll(Sklad.goods);
-        }
+        switch (z) {
+            case 1:
+                Collections.sort(sPrice, new SortedByPrice());
+                break;
+            case 2:
+                Collections.sort(sPrice, new SortedByPrice1());
+                break;
+
+
+        }}
         return sPrice;
     }
+
+//    public Collection<Produckt> searchPrice(int price, Collection<Produckt> searchPric) {
+//        Vector<Produckt> sPrice = new Vector<>();
+//        for (Produckt tmp : searchPric) {
+//            if (tmp.price == price)
+//                sPrice.add(tmp);
+//        }
+//        if (sPrice.isEmpty()) {
+//            System.out.println("Что то не так с ценой. Выводим весь товар.");
+//            sPrice.addAll(searchPric);
+//        }
+//
+//        return sPrice;
+//    }
 
 //    @Override
 //    public int compareTo(User t) {
@@ -134,14 +162,15 @@ public class User implements Comparable<User> {
 //        return reU;
 //    }
 
-    @Override
-    public int compareTo(User t) {
-        return  (this.userName.compareTo(t.userName)* this.userMail.compareTo(t.userMail)+this.userPhone.compareTo(t.userPhone));
+        @Override
+        public int compareTo (User t){
+            return (this.userName.compareTo(t.userName) * this.userMail.compareTo(t.userMail) + this.userPhone.compareTo(t.userPhone));
+
+        }
 
     }
 
-}
-//class SortedByName implements Comparator<User> {
+    //class SortedByName implements Comparator<User> {
 //    public int compare(User obj1, User obj2) {
 //
 //        String str1 = obj1.userName;
@@ -150,3 +179,37 @@ public class User implements Comparable<User> {
 //        return str1.compareTo(str2);
 //    }
 //}
+    class SortedByPrice implements Comparator<Produckt> {
+
+        public int compare(Produckt t1, Produckt t2) {
+
+            int price1 = t1.price;
+            int price2 = t2.price;
+
+            if (price1 > price2) {
+                return 1;
+            } else if (price1 < price2) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+    }
+
+    class SortedByPrice1 implements Comparator<Produckt> {
+
+        public int compare(Produckt t1, Produckt t2) {
+
+            int price1 = t2.price;
+            int price2 = t1.price;
+
+            if (price1 > price2) {
+                return 1;
+            } else if (price1 < price2) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+    }
+

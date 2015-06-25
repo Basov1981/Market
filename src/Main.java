@@ -28,8 +28,8 @@ public class Main {
         admin.addUser(user2);
         admin.addUser(user3);
         admin.addUser(user4);
-        admin.reportUser("Admin","7777"); //вывод всех пользователей
-        user1.reportUser("Ivanov","3333");//ошибка неправильный пароль
+        admin.reportUser("Admin", "7777"); //вывод всех пользователей
+        user1.reportUser("Ivanov", "3333");//ошибка неправильный пароль
         admin.reportUserPass("Best", "3rrr6"); //проверка логина и пароля
         admin.changePass("Best", "3rrr6", "22222");//замена пароля пользователя
         System.out.println();
@@ -43,24 +43,27 @@ public class Main {
         sklad.addProduckt(beer3);
         sklad.addProduckt(beer2);
 
-        sklad.reportSklad();
+//        sklad.reportSklad();
+        admin.getGoodsUser();
         System.out.println();
-        System.out.println(user1.searchName("Obolon", Sklad.goods));//сортировка по имени
+//        System.out.println(user1.searchName("Obolon", User.goodsUser));//сортировка по имени
+//        System.out.println();
+//        System.out.println(user1.searchCategory(Category.Молочная_продукция, User.goodsUser));//сортировка по категории
+//        System.out.println();
+//        System.out.println(user1.searchPrice(2, User.goodsUser));//сортировка по цене 2-от большего к меньшему, 1 - от меньшего к большему
         System.out.println();
-        System.out.println(user1.searchCategory(Category.Молочная_продукция, Sklad.goods));//сортировка по категории
-        System.out.println();
-        System.out.println(user1.searchPrice(12, Sklad.goods));//сортировка по цене
-        System.out.println();
-        System.out.println(user1.searchPrice(10, user1.searchCategory(Category.Молочная_продукция, user1.searchName("Burenka", Sklad.goods))));//сотривовка по имени затем по категории затем цене
+        System.out.println(user1.searchCategory(Category.Молочная_продукция, user1.searchName("Burenka", User.goodsUser)));//сотривовка по имени затем по категории затем цене
 
-        skladMilk.reportSkladCategory(Category.Молочная_продукция);
-        skladBeer.reportSkladCategory(Category.Пиво);
-        sklad.reportSkladManufacture(Manufacture.Оболонь);
-        sklad.reportSkladManufacture(Manufacture.Галичина);
-        sklad.reportSkladProdukt("Burenka");
-        sklad.reportSkladProdukt("Obolon");
-        sklad.reportSkladProdukt("Десант");
-        sklad.reportSkladProdukt("Bavaria");
+        System.out.println(user1.searchPrice(1, user1.searchCategory(Category.Молочная_продукция, user1.searchName("Burenka", User.goodsUser))));//сотривовка по имени затем по категории затем цене
+
+//        skladMilk.reportSkladCategory(Category.Молочная_продукция);
+//        skladBeer.reportSkladCategory(Category.Пиво);
+//        sklad.reportSkladManufacture(Manufacture.Оболонь);
+//        sklad.reportSkladManufacture(Manufacture.Галичина);
+//        sklad.reportSkladProdukt("Burenka");
+//        sklad.reportSkladProdukt("Obolon");
+//        sklad.reportSkladProdukt("Десант");
+//        sklad.reportSkladProdukt("Bavaria");
 
     }
 }
