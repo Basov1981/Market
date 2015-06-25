@@ -16,13 +16,13 @@ public class Main {
         Produckt beer2 = new Produckt("Obolon", Manufacture.Оболонь, new Date(), Category.Пиво, SyzeItem.Пакет_0_5л, 14, 45, 500);
         User admin = new User("Admin", "00000000", "rrr@yyyy", "7777");
         User user1 = new User("Best", "066-111-22-33", "ysa.sergey@gmail.com", "1w23");
-        User user2 = new User("Petrov", "066-111-22-34", "y.sergey@gmail.com", "3rrr6");
-        User user3 = new User("Best", "066-111-22-34", "y.sergey@gmail.com", "3rrr6");
+        User user2 = new User("Petrov", "066-111-22-34", "g.sergey@gmail.com", "3rrr6");
+        User user3 = new User("Best", "066-111-22-34", "y.sergey@gmail.com.ua", "3rrr6");
         User user4 = new User("Best", "066-111-22-34", "y.sergey@gmail.com", "3rrr6");
 
         sklad.addSklad(skladMilk);
         sklad.addSklad(skladBeer);
-        sklad.reportS();//вывод складов
+     //   sklad.reportS();//вывод складов
 
         admin.addUser(user1);
         admin.addUser(user2);

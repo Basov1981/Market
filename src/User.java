@@ -1,7 +1,4 @@
-import java.util.Collection;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.Vector;
+import java.util.*;
 
 
 public class User implements Comparable<User> {
@@ -40,12 +37,29 @@ public class User implements Comparable<User> {
     }
 
     public void reportUser(String userName, String pass) {
-        if (userName.equals("Admin")&& pass == "7777") {
-            System.out.println("Все пользователи в базе");
-            for (User temp : usersV)
+        if (userName.equals("Admin")&& pass == "7777"){
+            System.out.println("Все пользователи в базе");{
+            for (User temp : usersV) {
                 System.out.println(temp);
-        } else System.out.println("\n" + "Для посмотра списка пользователей введите правильное имя и пароль"+"\n");
+            }
+        }}
+
+        else System.out.println("\n" + "Для посмотра списка пользователей введите правильное имя и пароль"+"\n");
+
+
     }
+
+//    public void reportUser(String userName, String pass) {
+//        ArrayList<User>sortUser=new ArrayList<>();
+//        if (userName.equals("Admin")&& pass == "7777") {
+//            System.out.println("Все пользователи в базе");
+//            sortUser.addAll(usersV);}
+//        else System.out.println("\n" + "Для посмотра списка пользователей введите правильное имя и пароль"+"\n");
+//
+//        System.out.println(sortUser);
+//        Collections.sort(sortUser, new SortedByName());
+//        System.out.println(sortUser);
+//    }
 
 
     public void reportUserPass(String userName, String password) {
@@ -109,15 +123,30 @@ public class User implements Comparable<User> {
         return sPrice;
     }
 
+//    @Override
+//    public int compareTo(User t) {
+//        int reU = 0;
+//        boolean flag = !this.userName.equals(t.userName) ||
+//                !this.userMail.equals(t.userMail);
+//
+//        if (flag) reU = 1;
+//
+//        return reU;
+//    }
+
     @Override
     public int compareTo(User t) {
-        int reU = 0;
-        boolean flag = !this.userName.equals(t.userName) ||
-                !this.userMail.equals(t.userMail);
+        return  (this.userName.compareTo(t.userName)* this.userMail.compareTo(t.userMail)+this.userPhone.compareTo(t.userPhone));
 
-        if (flag) reU = 1;
-
-        return reU;
     }
 
 }
+//class SortedByName implements Comparator<User> {
+//    public int compare(User obj1, User obj2) {
+//
+//        String str1 = obj1.userName;
+//        String str2 = obj2.userName;
+//
+//        return str1.compareTo(str2);
+//    }
+//}
