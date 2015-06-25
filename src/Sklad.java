@@ -57,7 +57,7 @@ public class Sklad {
         for (Produckt temp : goods) {
             if (manufacture == temp.manufacture) {
                 suum += temp.price * temp.items;
-                System.out.println("На складе товара - " + temp.name + "  от производителя - " + manufacture + " на сумму - " + suum + " грн.");
+                System.out.println("На складе товара - " + temp.name + " от производителя - " + manufacture + " на сумму - " + suum + " грн.");
                 System.out.println();
             }
         }
