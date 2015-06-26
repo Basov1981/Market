@@ -126,13 +126,10 @@ public class User implements Comparable<User> {
                 sPrice.add(tmp);
         switch (z) {
             case 1:
-                Collections.sort(sPrice, new SortedByPrice());
-                break;
-            case 2:
                 Collections.sort(sPrice, new SortedByPrice1());
                 break;
-
-
+            default:
+                Collections.sort(sPrice, new SortedByPrice());
         }}
         return sPrice;
     }

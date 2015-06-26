@@ -50,11 +50,11 @@ public class Main {
 //        System.out.println();
 //        System.out.println(user1.searchCategory(Category.Молочная_продукция, User.goodsUser));//сортировка по категории
 //        System.out.println();
-//        System.out.println(user1.searchPrice(2, User.goodsUser));//сортировка по цене 2-от большего к меньшему, 1 - от меньшего к большему
+//        System.out.println(user1.searchPrice(2, User.goodsUser));//сортировка по цене 1-от большего к меньшему, любое - от меньшего к большему
         System.out.println();
         System.out.println(user1.searchCategory(Category.Молочная_продукция, user1.searchName("Burenka", User.goodsUser)));//сотривовка по имени затем по категории затем цене
 
-        System.out.println(user1.searchPrice(1, user1.searchCategory(Category.Молочная_продукция, user1.searchName("Burenka", User.goodsUser))));//сотривовка по имени затем по категории затем цене
+        System.out.println(user1.searchPrice(0, user1.searchCategory(Category.Молочная_продукция, user1.searchName("Burenka", User.goodsUser))));//сотривовка по имени затем по категории затем цене
 
 //        skladMilk.reportSkladCategory(Category.Молочная_продукция);
 //        skladBeer.reportSkladCategory(Category.Пиво);
