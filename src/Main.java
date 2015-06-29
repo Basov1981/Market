@@ -28,11 +28,11 @@ public class Main {
         admin.addUser(user2);
         admin.addUser(user3);
         admin.addUser(user4);
-        admin.reportUser("Admin", "7777"); //вывод всех пользователей
-        user1.reportUser("Ivanov", "3333");//ошибка неправильный пароль
-        admin.reportUserPass("Best", "3rrr6"); //проверка логина и пароля
-        admin.changePass("Best", "3rrr6", "22222");//замена пароля пользователя
-        System.out.println();
+//        admin.reportUser("Admin", "7777"); //вывод всех пользователей
+//        user1.reportUser("Ivanov", "3333");//ошибка неправильный пароль
+//        admin.reportUserPass("Best", "3rrr6"); //проверка логина и пароля
+//        admin.changePass("Best", "3rrr6", "22222");//замена пароля пользователя
+//        System.out.println();
 
         sklad.addProduckt(milk);
         sklad.addProduckt(milk1);
@@ -46,15 +46,34 @@ public class Main {
 //        sklad.reportSklad();
         admin.getGoodsUser();
         System.out.println();
-//        System.out.println(user1.searchName("Obolon", User.goodsUser));//сортировка по имени
+        System.out.println(user1.searchName("Burenka", User.goodsUser));//сортировка по имени
+        System.out.println();
+//        Order order1=new Order(user1,"Burenka",Manufacture.Галичина,SyzeItem.Пакет_1л,6,5);
+//        order1.addToBasket(order1);
+//        Order order2=new Order(user1,"Burenka",Manufacture.Галичина,SyzeItem.Пакет_1л,6,12);
+//        order1.addToBasket(order2);
+//        sklad.remProdukt(beer3);
+//        sklad.reportSklad();
+        Order order1= new Order(user1,milk1,5);//выбор товара
+        order1.addToBasket(order1);//добавление товара в корзину
+        Order order2= new Order(user1,milk2,100);//выбор товара
+        order2.addToBasket(order2);//добавление товара в корзину
+        Order order3=new Order(user2,milk1,15);//выбор товара
+        order3.addToBasket(order3);//добавление товара в корзину
+//        order2.delItemsinBasket(order2);//удаление товара из корзины
+        System.out.println(user1.searchName("Burenka", User.goodsUser));//сортировка по товару
+        System.out.println(order1.searchUser(user1, Order.userBasket)+" все ордера по пользователю ");//ордера по пользователю
+
+
+
 //        System.out.println();
 //        System.out.println(user1.searchCategory(Category.Молочная_продукция, User.goodsUser));//сортировка по категории
 //        System.out.println();
 //        System.out.println(user1.searchPrice(2, User.goodsUser));//сортировка по цене 1-от большего к меньшему, любое - от меньшего к большему
-        System.out.println();
-        System.out.println(user1.searchCategory(Category.Молочная_продукция, user1.searchName("Burenka", User.goodsUser)));//сотривовка по имени затем по категории затем цене
-
-        System.out.println(user1.searchPrice(0, user1.searchCategory(Category.Молочная_продукция, user1.searchName("Burenka", User.goodsUser))));//сотривовка по имени затем по категории затем цене
+//        System.out.println();
+//        System.out.println(user1.searchCategory(Category.Молочная_продукция, user1.searchName("Burenka", User.goodsUser)));//сотривовка по имени затем по категории затем цене
+//
+//        System.out.println(user1.searchPrice(0, user1.searchCategory(Category.Молочная_продукция, user1.searchName("Burenka", User.goodsUser))));//сотривовка по имени затем по категории затем цене
 
 //        skladMilk.reportSkladCategory(Category.Молочная_продукция);
 //        skladBeer.reportSkladCategory(Category.Пиво);

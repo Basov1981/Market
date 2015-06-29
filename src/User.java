@@ -2,6 +2,7 @@ import java.util.*;
 
 
 public class User implements Comparable<User> {
+   static double nasenka = 1.3;
     static Set<User> usersV = new TreeSet<>();
     static ArrayList<Produckt> goodsUser = new ArrayList<>();
 
@@ -19,7 +20,7 @@ public class User implements Comparable<User> {
     }
 
     public ArrayList<Produckt> getGoodsUser() {
-        double nasenka = 1.3;
+
         for (Produckt tmp : Sklad.goods) {
             tmp.price *= nasenka;
             goodsUser.add(tmp);
