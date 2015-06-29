@@ -56,13 +56,13 @@ public class Main {
 //        sklad.reportSklad();
         Order order1= new Order(user1,milk1,5);//выбор товара
         order1.addToBasket(order1);//добавление товара в корзину
-        Order order2= new Order(user1,milk2,100);//выбор товара
+        Order order2= new Order(user1,milk2,16);//выбор товара
         order2.addToBasket(order2);//добавление товара в корзину
         Order order3=new Order(user2,milk1,15);//выбор товара
         order3.addToBasket(order3);//добавление товара в корзину
 //        order2.delItemsinBasket(order2);//удаление товара из корзины
         System.out.println(user1.searchName("Burenka", User.goodsUser));//сортировка по товару
-        System.out.println(order1.searchUser(user1, Order.userBasket)+" все ордера по пользователю ");//ордера по пользователю
+        System.out.println(order3.searchUser(user2, Order.userBasket)+" все ордера по пользователю ");//ордера по пользователю
 
 
 
