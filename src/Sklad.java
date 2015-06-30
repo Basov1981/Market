@@ -11,14 +11,6 @@ public class Sklad {
     String adress;
     String mol;
 
-    @Override
-    public String toString() {
-        return "Наименование - '" + nameSklad + '\'' +
-                ", Площадь=" + squre +
-                ", расположение='" + adress + '\'' +
-                ", ответственный='" + mol + "\n";
-    }
-
     public Sklad(int squre, String nameSklad, String adress, String mol) {
         this.squre = squre;
         this.nameSklad = nameSklad;
@@ -26,6 +18,13 @@ public class Sklad {
         this.mol = mol;
     }
 
+    @Override
+    public String toString() {
+        return "Наименование - '" + nameSklad + '\'' +
+                ", Площадь=" + squre +
+                ", расположение='" + adress + '\'' +
+                ", ответственный='" + mol + "\n";
+    }
 
     public boolean addSklad(Sklad sklad) {
         return sklads.add(sklad);

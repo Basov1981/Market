@@ -22,7 +22,7 @@ public class Main {
 
         sklad.addSklad(skladMilk);
         sklad.addSklad(skladBeer);
-     //   sklad.reportS();//вывод складов
+        //   sklad.reportS();//вывод складов
 
         admin.addUser(user1);
         admin.addUser(user2);
@@ -53,19 +53,18 @@ public class Main {
 //        sklad.remProdukt(beer3);
 //        sklad.reportSklad();
         sklad.reportSklad();
-        Order order1= new Order(user1,milk1,5);//выбор товара
+        Order order1 = new Order(user1, milk1, 5);//выбор товара
         order1.addToBasket(order1);//добавление товара в корзину
-        Order order2= new Order(user1,milk2,16);//выбор товара
+        Order order2 = new Order(user1, milk2, 16);//выбор товара
         order2.addToBasket(order2);//добавление товара в корзину
-        Order order3=new Order(user2,milk1,15);//выбор товара
+        Order order3 = new Order(user2, milk1, 15);//выбор товара
         order3.addToBasket(order3);//добавление товара в корзину
 //        order2.delItemsinBasket(order2);//удаление товара из корзины
         System.out.println(user1.searchName("Burenka", User.goodsUser));//сортировка по товару
-        System.out.println(order3.searchUser(user2, Order.userBasket)+" все ордера по пользователю ");//ордера по пользователю
-        Zvit newZvit=new Zvit();//создаем объект newZvit
+        System.out.println(order3.searchUser(user2, Order.userBasket) + " все ордера по пользователю ");//ордера по пользователю
+        Zvit newZvit = new Zvit();//создаем объект newZvit
         newZvit.dayZvit();// вызываем метод dayZvit()
 //        sklad.reportSklad();//Отчет по складу после звита
-
 
 
 //        System.out.println();

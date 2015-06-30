@@ -2,7 +2,7 @@ import java.util.*;
 
 
 public class User implements Comparable<User> {
-   static double nasenka = 1.3;
+    static double nasenka = 1.3;
     static Set<User> usersV = new TreeSet<>();
     static ArrayList<Produckt> goodsUser = new ArrayList<>();
 
@@ -124,90 +124,57 @@ public class User implements Comparable<User> {
     public Collection<Produckt> searchPrice(int z, Collection<Produckt> searchPric) {
         ArrayList<Produckt> sPrice = new ArrayList<>();
         for (Produckt tmp : searchPric) {
-                sPrice.add(tmp);
-        switch (z) {
-            case 1:
-                Collections.sort(sPrice, new SortedByPrice1());
-                break;
-            default:
-                Collections.sort(sPrice, new SortedByPrice());
-        }}
+            sPrice.add(tmp);
+            switch (z) {
+                case 1:
+                    Collections.sort(sPrice, new SortedByPrice1());
+                    break;
+                default:
+                    Collections.sort(sPrice, new SortedByPrice());
+            }
+        }
         return sPrice;
     }
 
-//    public Collection<Produckt> searchPrice(int price, Collection<Produckt> searchPric) {
-//        Vector<Produckt> sPrice = new Vector<>();
-//        for (Produckt tmp : searchPric) {
-//            if (tmp.price == price)
-//                sPrice.add(tmp);
-//        }
-//        if (sPrice.isEmpty()) {
-//            System.out.println("Что то не так с ценой. Выводим весь товар.");
-//            sPrice.addAll(searchPric);
-//        }
-//
-//        return sPrice;
-//    }
-
-//    @Override
-//    public int compareTo(User t) {
-//        int reU = 0;
-//        boolean flag = !this.userName.equals(t.userName) ||
-//                !this.userMail.equals(t.userMail);
-//
-//        if (flag) reU = 1;
-//
-//        return reU;
-//    }
-
-        @Override
-        public int compareTo (User t){
-            return (this.userName.compareTo(t.userName) * this.userMail.compareTo(t.userMail) + this.userPhone.compareTo(t.userPhone));
-
-        }
+    @Override
+    public int compareTo(User t) {
+        return (this.userName.compareTo(t.userName) * this.userMail.compareTo(t.userMail) + this.userPhone.compareTo(t.userPhone));
 
     }
 
-    //class SortedByName implements Comparator<User> {
-//    public int compare(User obj1, User obj2) {
-//
-//        String str1 = obj1.userName;
-//        String str2 = obj2.userName;
-//
-//        return str1.compareTo(str2);
-//    }
-//}
-    class SortedByPrice implements Comparator<Produckt> {
+}
 
-        public int compare(Produckt t1, Produckt t2) {
+class SortedByPrice implements Comparator<Produckt> {
 
-            int price1 = t1.price;
-            int price2 = t2.price;
+    public int compare(Produckt t1, Produckt t2) {
 
-            if (price1 > price2) {
-                return 1;
-            } else if (price1 < price2) {
-                return -1;
-            } else {
-                return 0;
-            }
+        int price1 = t1.price;
+        int price2 = t2.price;
+
+        if (price1 > price2) {
+            return 1;
+        } else if (price1 < price2) {
+            return -1;
+        } else {
+            return 0;
         }
     }
+}
 
-    class SortedByPrice1 implements Comparator<Produckt> {
+class SortedByPrice1 implements Comparator<Produckt> {
 
-        public int compare(Produckt t1, Produckt t2) {
+    public int compare(Produckt t1, Produckt t2) {
 
-            int price1 = t2.price;
-            int price2 = t1.price;
+        int price1 = t2.price;
+        int price2 = t1.price;
 
-            if (price1 > price2) {
-                return 1;
-            } else if (price1 < price2) {
-                return -1;
-            } else {
-                return 0;
-            }
+        if (price1 > price2) {
+            return 1;
+        } else if (price1 < price2) {
+            return -1;
+        } else {
+            return 0;
         }
     }
+}
 
