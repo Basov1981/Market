@@ -39,6 +39,7 @@ public class Sklad {
         return goods.remove(produckt);
     }
 
+
     public void reportS() {
         System.out.println(sklads + "\n");
 
